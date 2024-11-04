@@ -1,0 +1,19 @@
+# macOS System files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Icon files
+.Icon
+.icon
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# macOS Finder tags
+.apdisk
+
