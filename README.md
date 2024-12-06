@@ -6,17 +6,17 @@
 This project automates the deployment of a web server and a database server using Ansible. The automation tasks include configuring firewalls, deploying web files, setting up MySQL databases, and more.
 
 ## Table of Contents
-1. [Overview](#overview)	
-2. [Setup](#setup)
-  - [Prerequisites](#rrerequisites)
+- [Overview](#overview)	
+- [Setup](#setup)
+  - [Prerequisites](#prerequisites)
   - [Connect to Managed Nodes](#connect-to-managed-nodes)
   - [Inventory File](#inventory-file)
   - [Ansible Configuration](#ansible-configuration)
   - [Check connections](#check-connections)
-3. [Usage](#usage)
+- [Usage](#usage)
   - [Deploy Website](#deploy-website)
   - [Access Website via the Webserver IP](#access-website-via-the-webserver-ip)
-5. [Authors](#authors)
+- [Authors](#authors)
 
 ---
 
