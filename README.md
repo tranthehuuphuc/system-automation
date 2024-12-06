@@ -6,11 +6,17 @@
 This project automates the deployment of a web server and a database server using Ansible. The automation tasks include configuring firewalls, deploying web files, setting up MySQL databases, and more.
 
 ## Table of Contents
-1. [Overview](#overview)
+1. [Overview](#overview)	
 2. [Setup](#setup)
+  - [Prerequisites](#rrerequisites)
+  - [Connect to Managed Nodes](#connect-to-managed-nodes)
+  - [Inventory File](#inventory-file)
+  - [Ansible Configuration](#ansible-configuration)
+  - [Check connections](#check-connections)
 3. [Usage](#usage)
-5. [Roles and Responsibilities](#roles-and-responsibilities)
-7. [Troubleshooting](#troubleshooting)
+  - [Deploy Website](#deploy-website)
+  - [Access Website via the Webserver IP](#access-website-via-the-webserver-ip)
+5. [Authors](#authors)
 
 ---
 
@@ -26,7 +32,6 @@ The configuration supports:
 - Remote MySQL access
 - Automatic database import
 
----
 
 ## Setup
 
@@ -68,7 +73,6 @@ private_key_file = ~/.ssh/id_ed25519
 ansible all -m ping
 ```
 
----
 
 ## Usage
 
@@ -78,11 +82,18 @@ You may be asked for sudo password:
 ansible-playbook global.yml --ask-become-pass
 ```
 
-### Access Website with the Webserver IP
+### Access Website via the Webserver IP
 ```
 10.10.10.10
 ```
 
+
+## Authors
+
+Contributors names and contact info:
+- Tran The Huu Phuc (22521143) - [@tranthehuuphuc](https://github.com/tranthehuuphuc)
+- Tran Thi Thuy Vy (22521709) - [@vytr09](https://github.com/vytr09)
+- Le Thi Bich Tuyen (22521630) - [@tuyen2201](https://github.com/tuyen2201)
+- Ha Minh Quan (22521177) - [@HaMinhQuan-Uit](https://github.com/HaMinhQuan-Uit)
+
 ---
-
-
