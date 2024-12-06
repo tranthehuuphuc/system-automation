@@ -1,0 +1,10 @@
+---
+# tasks file for roles/dbserver
+
+- name: Ensure 3306 port is listed in the firewall
+  ansible.builtin.command: firewall-cmd --permanent --add-port=3306/tcp
+  changed_when: false
+
+- name: Reload firewall configuration
+  ansible.builtin.command: firewall-cmd --reload
+  changed_when: false

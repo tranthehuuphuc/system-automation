@@ -1,0 +1,42 @@
+---
+# tasks file for roles/dbserver
+
+- name: Remove default root password
+  ansible.builtin.command: >
+    mysqladmin -u root password ""
+  changed_when: false
+
+- name: Create database
+  community.mysql.mysql_db:
+    name: "{{ dbserver_db_name }}"
+    state: present
+    login_user: "{{ dbserver_db_user }}"
+    login_password: "{{ dbserver_db_password }}"
+
+- name: Upload SQL file to dbserver
+  ansible.builtin.copy:
+    src: files/shop.sql
+    dest: "{{ dbserver_sql_file }}"
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Import database from SQL file
+  community.mysql.mysql_db:
+    login_user: "{{ dbserver_db_user }}"
+    login_password: "{{ dbserver_db_password }}"
+    name: "{{ dbserver_db_name }}"
+    state: import
+    target: "{{ dbserver_sql_file }}"
+
+- name: Create 'root' user with host 'webserver' and no password
+  community.mysql.mysql_user:
+    name: root
+    host: "{{ dbserver_webserver_ip }}"
+    password: ""
+    priv: "*.*:ALL"
+    state: present
+    login_user: "{{ dbserver_db_user }}"
+    login_password: "{{ dbserver_db_password }}"
+    column_case_sensitive: false
+  notify: Restart MariaDB

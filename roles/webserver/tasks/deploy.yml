@@ -1,0 +1,27 @@
+---
+# tasks file for roles/webserver
+
+- name: Ensure /var/www/html/ exists
+  ansible.builtin.file:
+    path: /var/www/html/
+    state: directory
+    owner: apache
+    group: apache
+    mode: '0755'
+
+- name: Copy website files
+  ansible.builtin.copy:
+    src: files/
+    dest: /var/www/html/
+    owner: apache
+    group: apache
+    mode: '0755'
+
+- name: Deploy VirtualHost
+  ansible.builtin.template:
+    src: templates/vhost.conf.j2
+    dest: /etc/httpd/conf.d/vhost.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Apache

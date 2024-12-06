@@ -1,0 +1,7 @@
+---
+# Handlers for dbserver role
+
+- name: Restart MariaDB
+  ansible.builtin.systemd:
+    name: mariadb
+    state: restarted

@@ -1,0 +1,33 @@
+---
+# tasks file for roles/dbserver
+
+- name: Install pip3
+  ansible.builtin.yum:
+    name: python3-pip
+    state: present
+
+- name: Install PyMySQL
+  ansible.builtin.pip:
+    name: PyMySQL
+    executable: pip3
+
+- name: Install MariaDB
+  ansible.builtin.yum:
+    name:
+      - mariadb-server
+      - mariadb
+    state: present
+
+- name: Ensure bind-address is set to 0.0.0.0
+  ansible.builtin.lineinfile:
+    path: /etc/my.cnf.d/mariadb-server.cnf
+    regexp: '^#bind-address'
+    line: 'bind-address=0.0.0.0'
+    state: present
+    backup: true
+
+- name: Start and enable MariaDB service
+  ansible.builtin.systemd:
+    name: mariadb
+    state: started
+    enabled: true

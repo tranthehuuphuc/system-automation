@@ -1,0 +1,27 @@
+---
+# tasks file for roles/webserver
+
+- name: Install Apache, PHP and MariaDB
+  ansible.builtin.yum:
+    name:
+      - httpd
+      - php
+      - php-mysqlnd
+      - php-cli
+      - php-common
+      - mariadb
+    state: present
+
+- name: Update Listen directive in httpd.conf
+  ansible.builtin.lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    regexp: '^Listen '
+    line: 'Listen 0.0.0.0:80'
+    state: present
+    backup: true
+
+- name: Start and enable Apache
+  ansible.builtin.systemd:
+    name: httpd
+    state: started
+    enabled: true

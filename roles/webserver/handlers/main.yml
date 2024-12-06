@@ -1,0 +1,7 @@
+---
+# Handlers for webserver role
+
+- name: Restart Apache
+  ansible.builtin.systemd:
+    name: httpd
+    state: restarted

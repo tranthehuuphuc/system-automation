@@ -1,0 +1,14 @@
+---
+# Deploy Web Server
+- name: Deploy Web Server
+  hosts: webserver
+  become: true
+  roles:
+    - webserver
+
+# Deploy Database Server
+- name: Deploy Database Server
+  hosts: dbserver
+  become: true
+  roles:
+    - dbserver

@@ -1,0 +1,11 @@
+---
+# tasks file for roles/dbserver
+
+- name: Install MySQL
+  ansible.builtin.include_tasks: install.yml
+
+- name: Configure MySQL
+  ansible.builtin.include_tasks: configure.yml
+
+- name: Configure Firewall
+  ansible.builtin.include_tasks: firewall.yml

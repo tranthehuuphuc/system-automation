@@ -1,0 +1,11 @@
+---
+# tasks file for roles/webserver
+
+- name: Install Apache and PHP
+  ansible.builtin.include_tasks: install.yml
+
+- name: Deploy website
+  ansible.builtin.include_tasks: deploy.yml
+
+- name: Configure Firewall
+  ansible.builtin.include_tasks: firewall.yml

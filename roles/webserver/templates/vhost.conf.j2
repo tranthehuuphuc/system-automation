@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+    ServerName deploy_ansible.com
+    DocumentRoot /var/www/html/
+
+    <Directory /var/www/html/>
+        AllowOverride All
+        Require all granted
+    </Directory>
+
+    ErrorLog /var/log/httpd/deploy_ansible.com-error.log
+    CustomLog /var/log/httpd/deploy_ansible.com-access.log combined
+</VirtualHost>

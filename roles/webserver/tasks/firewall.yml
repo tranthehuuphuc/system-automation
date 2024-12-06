@@ -1,0 +1,19 @@
+---
+# tasks file for roles/dbserver
+
+- name: Ensure 80 port is listed in the firewall
+  ansible.builtin.command: firewall-cmd --permanent --add-port=80/tcp
+  changed_when: false
+
+- name: Ensure 443 port is listed in the firewall
+  ansible.builtin.command: firewall-cmd --permanent --add-port=443/tcp
+  changed_when: false
+
+- name: Reload firewall configuration
+  ansible.builtin.command: firewall-cmd --reload
+  changed_when: false
+
+- name: Disable SELinux
+  ansible.builtin.command: setenforce 0
+  when: ansible_selinux.status == "enabled"
+  changed_when: false

@@ -1,0 +1,8 @@
+---
+# vars file for roles/dbserver
+
+dbserver_db_name: shop
+dbserver_db_user: root
+dbserver_db_password: ""  # Empty password
+dbserver_sql_file: /tmp/shop.sql
+dbserver_webserver_ip: 10.10.10.10
