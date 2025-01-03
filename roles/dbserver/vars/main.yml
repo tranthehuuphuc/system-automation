@@ -1,5 +1,5 @@
 ---
-# vars file for roles/dbserver
+# roles/dbserver/vars/main.yml
 
 dbserver_db_name: shop
 dbserver_db_user: root

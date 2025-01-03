@@ -1,11 +1,4 @@
--- MySQL Workbench SQL Dump
--- Version 5.0.2
--- https://www.mysql.com/
---
--- Host: 127.0.0.1
--- Generated at: Fri, 28 Aug 2020 21:08
--- Server version: 10.4.14-MariaDB
--- PHP version: 7.4.9
+-- dbserver/files/shop.sql
 
 SET SESSION sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 START TRANSACTION;

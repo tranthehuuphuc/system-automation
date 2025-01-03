@@ -1,5 +1,5 @@
 ---
-# Handlers for webserver role
+# roles/webserver/handlers/main.yml
 
 - name: Restart Apache
   ansible.builtin.systemd:

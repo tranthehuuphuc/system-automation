@@ -1,5 +1,5 @@
 ---
-# tasks file for roles/dbserver
+# roles/dbserver/tasks/main.yml
 
 - name: Install MySQL
   ansible.builtin.include_tasks: install.yml

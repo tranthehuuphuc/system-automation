@@ -1,5 +1,5 @@
 ---
-# tasks file for roles/dbserver
+# roles/webserver/tasks/firewall.yml
 
 - name: Ensure 80 port is listed in the firewall
   ansible.builtin.command: firewall-cmd --permanent --add-port=80/tcp

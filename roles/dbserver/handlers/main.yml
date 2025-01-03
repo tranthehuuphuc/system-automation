@@ -1,5 +1,5 @@
 ---
-# Handlers for dbserver role
+# roles/dbserver/handlers/main.yml
 
 - name: Restart MariaDB
   ansible.builtin.systemd:

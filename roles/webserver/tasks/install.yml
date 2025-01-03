@@ -1,5 +1,5 @@
 ---
-# tasks file for roles/webserver
+# roles/webserver/tasks/install.yml
 
 - name: Install Apache, PHP and MariaDB
   ansible.builtin.yum:
